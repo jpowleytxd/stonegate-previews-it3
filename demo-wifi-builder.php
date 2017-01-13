@@ -2,6 +2,27 @@
 
 ini_set('max_execution_time', 3000);
 
+function sendToFile($output, $append, $serverName){
+  $send = true;
+  if($send === true){
+    $outputPath = "client.demo/";
+    $brand = '/branded/';
+    $fileType=".html";
+
+    $dirName = $outputPath . $serverName;
+    if(!is_dir($dirName)){
+      mkdir($dirName, 0755);
+    }
+
+    $dirName = $outputPath . $serverName . $brand ;
+    if(!is_dir($dirName)){
+      mkdir($dirName, 0755);
+    }
+
+    file_put_contents(($outputPath . $serverName . $brand . $append . $fileType), $output);
+  }
+}
+
 function databaseQuery($query){
   //Define Connection
   static $connection;
@@ -307,11 +328,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   $output = htmlBuilder($output, $parentFolder);
 
-  $outputPath = "client.demo/wifi/1-day/";
-  $append = "_wifi_1";
-  $fileType=".html";
+  $append = "wifi_1_day";
 
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }
@@ -409,11 +428,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   $output = htmlBuilder($output, $parentFolder);
 
-  $outputPath = "client.demo/wifi/1-day/";
-  $append = "_wifi_1";
-  $fileType=".html";
+  $append = "wifi_7_days";
 
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }
@@ -518,11 +535,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   $output = htmlBuilder($output, $parentFolder);
 
-  $outputPath = "client.demo/wifi/1-day/";
-  $append = "_wifi_1";
-  $fileType=".html";
+  $append = "wifi_21_days";
 
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }

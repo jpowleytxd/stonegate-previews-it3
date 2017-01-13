@@ -2,6 +2,27 @@
 
 ini_set('max_execution_time', 3000);
 
+function sendToFile($output, $append, $serverName){
+  $send = true;
+  if($send === true){
+    $outputPath = "client.demo/";
+    $brand = '/branded/';
+    $fileType=".html";
+
+    $dirName = $outputPath . $serverName;
+    if(!is_dir($dirName)){
+      mkdir($dirName, 0755);
+    }
+
+    $dirName = $outputPath . $serverName . $brand ;
+    if(!is_dir($dirName)){
+      mkdir($dirName, 0755);
+    }
+
+    file_put_contents(($outputPath . $serverName . $brand . $append . $fileType), $output);
+  }
+}
+
 function databaseQuery($query){
   //Define Connection
   static $connection;
@@ -184,13 +205,31 @@ function htmlBuilder($content, $brand){
   return $output;
 }
 
-$initialQuery = 'SELECT * FROM iteration2';
+function getContent($serverName, $block, $birthdayCommonRoom, $birthdayYates){
+  if(($serverName === 'yates') || ($serverName === 'bosleys')){
+    if($block === 'heading'){
+      return
+    } else if($block === 'textOne'){
+
+    } else if($block === 'textTwo'){
+
+    } else if($block === 'voucherInstructions'){
+
+    } else if($block === 'terms'){
+
+    }
+  } else if($serverName === 'common_room'){
+
+  }
+}
+
+$initialQuery = 'SELECT * FROM commonRoom';
 
 $rows = databaseQuery($initialQuery);
 
 $rowCount = null;
 
-$birthdayRows = array();
+$birthdayCommonRoom = array();
 
 foreach($rows as $key => $row){
 
@@ -199,7 +238,29 @@ foreach($rows as $key => $row){
 
     if($i === 0){
       if(strpos($single, 'Birthday') !== false){
-        array_push($birthdayRows, $row);
+        array_push($birthdayCommonRoom, $row);
+        $rowCount++;
+      }
+    }
+  }
+}
+
+$initialQuery = 'SELECT * FROM yates';
+
+$rows = databaseQuery($initialQuery);
+
+$rowCount = null;
+
+$birthdayYates = array();
+
+foreach($rows as $key => $row){
+
+  foreach($row as $i => $single){
+    //var_dump($single);
+
+    if($i === 0){
+      if(strpos($single, 'Birthday') !== false){
+        array_push($birthdayYates, $row);
         $rowCount++;
       }
     }
@@ -222,7 +283,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Heading
   $heading = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_heading.html');
-  $heading = str_replace('Heading goes here', $birthdayRows[0][4], $heading);
+  $heading = str_replace('Heading goes here', $birthdayCommonRoom[0][4], $heading);
   $heading = str_replace('align="left"', 'align="center"', $heading);
   $heading = marginBuilder($heading);
 
@@ -246,8 +307,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = $textTwo = $basicText;
 
   //Prep Text One
-  $birthdayRows[0][5] = str_replace('"', '', $birthdayRows[0][5]);
-  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[0][5], $textOne);
+  $birthdayCommonRoom[0][5] = str_replace('"', '', $birthdayCommonRoom[0][5]);
+  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[0][5], $textOne);
   //$textOne = str_replace('"', '', $textOne);
   $textOne = preg_replace('/##/m', '<p>', $textOne);
 
@@ -264,7 +325,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
 
   //Prep Voucher
-  $voucherInstructions = $birthdayRows[0][12];
+  $voucherInstructions = $birthdayCommonRoom[0][12];
 
   $voucher = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_voucher.html');
   $voucherSearch = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -273,8 +334,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $voucher = marginBuilder($voucher);
 
   //Prep Text Two
-  $birthdayRows[0][10] = str_replace('"', '', $birthdayRows[0][10]);
-  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[0][10], $textTwo);
+  $birthdayCommonRoom[0][10] = str_replace('"', '', $birthdayCommonRoom[0][10]);
+  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[0][10], $textTwo);
   $textTwo = preg_replace('/##(.+?)##/m', '<p>$1</p>', $textTwo);
 
   $styleInsert = 'style="color: ' . $textColor . ';font-weight: bold; font-family: arial;"';
@@ -289,7 +350,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textColor = textColor($color);
   //print($textColor . '<br/>');
 
-  $terms = termsBuilder($birthdayRows[0][11]);
+  $terms = termsBuilder($birthdayCommonRoom[0][11]);
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
@@ -306,13 +367,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $output = preg_replace('/\{.*?\}/ms', '', $output);
   $output = preg_replace('/\<!--.*?\-->/ms', '', $output);
 
-  $output = htmlBuilder($output, $parentFolder);
+  $append = "birthday_1_week";
 
-  $outputPath = "client.demo/birthdays/1-week/";
-  $append = "_birthday_1";
-  $fileType=".html";
-
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }
@@ -333,7 +390,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Heading
   $heading = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_heading.html');
-  $heading = str_replace('Heading goes here', $birthdayRows[1][4], $heading);
+  $heading = str_replace('Heading goes here', $birthdayCommonRoom[1][4], $heading);
   $heading = str_replace('align="left"', 'align="center"', $heading);
   $heading = marginBuilder($heading);
 
@@ -357,8 +414,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = $textTwo = $basicText;
 
   //Prep Text One
-  $birthdayRows[1][5] = str_replace('"', '', $birthdayRows[1][5]);
-  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[1][5], $textOne);
+  $birthdayCommonRoom[1][5] = str_replace('"', '', $birthdayCommonRoom[1][5]);
+  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[1][5], $textOne);
   //$textOne = str_replace('"', '', $textOne);
   $textOne = preg_replace('/##/m', '<p>', $textOne);
 
@@ -375,7 +432,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
 
   //Prep Voucher
-  $voucherInstructions = $birthdayRows[1][12];
+  $voucherInstructions = $birthdayCommonRoom[1][12];
 
   $voucher = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_voucher.html');
   $voucherSearch = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -384,8 +441,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $voucher = marginBuilder($voucher);
 
   //Prep Text Two
-  $birthdayRows[1][10] = str_replace('"', '', $birthdayRows[1][10]);
-  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[1][10], $textTwo);
+  $birthdayCommonRoom[1][10] = str_replace('"', '', $birthdayCommonRoom[1][10]);
+  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[1][10], $textTwo);
   $textTwo = preg_replace('/##(.+?)##/m', '<p>$1</p>', $textTwo);
 
   $styleInsert = 'style="color: ' . $textColor . ';font-weight: bold; font-family: arial;"';
@@ -400,7 +457,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textColor = textColor($color);
   //print($textColor . '<br/>');
 
-  $terms = termsBuilder($birthdayRows[1][11]);
+  $terms = termsBuilder($birthdayCommonRoom[1][11]);
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
@@ -419,11 +476,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   $output = htmlBuilder($output, $parentFolder);
 
-  $outputPath = "client.demo/birthdays/1-week/";
-  $append = "_birthday_1";
-  $fileType=".html";
+  $append = "birthday_3_weeks";
 
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }
@@ -444,7 +499,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Heading
   $heading = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_heading.html');
-  $heading = str_replace('Heading goes here', $birthdayRows[1][4], $heading);
+  $heading = str_replace('Heading goes here', $birthdayCommonRoom[1][4], $heading);
   $heading = str_replace('align="left"', 'align="center"', $heading);
   $heading = marginBuilder($heading);
 
@@ -468,8 +523,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = $textTwo = $basicText;
 
   //Prep Text One
-  $birthdayRows[2][5] = str_replace('"', '', $birthdayRows[2][5]);
-  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[2][5], $textOne);
+  $birthdayCommonRoom[2][5] = str_replace('"', '', $birthdayCommonRoom[2][5]);
+  $textOne = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[2][5], $textOne);
   //$textOne = str_replace('"', '', $textOne);
   $textOne = preg_replace('/##/m', '<p>', $textOne);
 
@@ -484,7 +539,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
 
   //Prep Voucher
-  $voucherInstructions = $birthdayRows[2][12];
+  $voucherInstructions = $birthdayCommonRoom[2][12];
 
   $voucher = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_voucher.html');
   $voucherSearch = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -493,8 +548,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $voucher = marginBuilder($voucher);
 
   //Prep Text Two
-  $birthdayRows[2][10] = str_replace('"', '', $birthdayRows[2][10]);
-  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayRows[2][10], $textTwo);
+  $birthdayCommonRoom[2][10] = str_replace('"', '', $birthdayCommonRoom[2][10]);
+  $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $birthdayCommonRoom[2][10], $textTwo);
   $textTwo = preg_replace('/##(.+?)##/m', '<p>$1</p>', $textTwo);
 
   $styleInsert = 'style="color: ' . $textColor . ';font-weight: bold; font-family: arial;"';
@@ -509,7 +564,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textColor = textColor($color);
   //print($textColor . '<br/>');
 
-  $terms = termsBuilder($birthdayRows[2][11]);
+  $terms = termsBuilder($birthdayCommonRoom[2][11]);
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
@@ -528,11 +583,9 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   $output = htmlBuilder($output, $parentFolder);
 
-  $outputPath = "client.demo/birthdays/1-week/";
-  $append = "_birthday_1";
-  $fileType=".html";
+  $append = "birthday_6_weeks";
 
-  //file_put_contents(($outputPath . $parentFolder . $append . $fileType), $output);
+  sendToFile($output, $append, $serverName);
 
   print_r($output);
 }
