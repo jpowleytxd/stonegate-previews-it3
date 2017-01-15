@@ -77,9 +77,21 @@ foreach(glob("client.demo/*/") as $filename){
   $title = ucwords($title);
 
   print_r('<h1>' . $title . '</h1>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/password_reset.html">Forgetten Password</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/auto_welcome_uk.html">Auto Welcome - Immediate</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_1_day_uk.html">Welcome 1 + 1 Day</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_7_days_uk.html">Welcome 2 + 7 Days</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_21_days_uk.html">Welcome 3 + 21 Days</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a>');
+	
   print_r('<a href="it2compiled/' . $parentFolder . '/adhoc.html">Adhoc</a>');
   print_r('<a href="it2compiled/' . $parentFolder . '/belly-band.html">Belly Band</a>');
   print_r('<a href="it2compiled/' . $parentFolder . '/newsletter.html">Newsletter</a>');
+
+
 }
 
  ?>

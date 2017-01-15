@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href="https://fonts.googleapis.com/css?family=lato:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+        <style type="text/css">
+    body { padding: 0; margin: 0;}
+    a[href^="x-apple-data-detectors:"] { color: inherit; }
+    b { font-weight: 700; }
+    #outlook a { padding: 0; }
+    .ReadMsgBody { width: 100%; }
+    .ExternalClass { width: 100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; }
+    body { margin: 0; padding: 0; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0; padding: 0; width: 100% !important; }
+    .appleBody a { color: #333333; text-decoration: none; }
+    .appleFooter a { color: #000000; text-decoration: none; }
+    .img-full { width: 100%!important; }
+    .img-max { max-width: 100%!important; }
+    .img-max-ninety { max-width: 90%!important; }
+    body { font-size: inherit; color: #000000; font-weight: normal; line-height: normal; }
+    h1, h2, h3, h4 { font-weight: bold; font-size: 100%; }
+    p { margin: 0; padding: 0; margin-bottom: 10px; font-weight: 300;}
+    ol { list-style-type: square; list-style-position: inside; margin-left: 10px; }
+    @media screen and (max-width: 600px) {
+    .wrapper { width: 100% !important;}
+    .mob-center { text-align: center!important;}
+    .mob-left { text-align: left!important;}
+    .mob-right { text-align: right!important;}
+    .mobile-hide { display: none;}
+    .mobile-hide { display: none !important;}
+    .responsive-table { width: 100%!important; height: auto!important;}
+    .mobile-wrapper { padding: 10px !important;}
+    .mobile-button-container { margin: 0 auto; width: 100% !important;}
+    .mobile-button { width: 80% !important; padding: 15px !important; border: 0 !important; font-size: 15px !important;}
+    .gmail-fix { display: none !important;}
+    .mob-spacer { height: 20px;}
+    .mob-no-border { border:none!important; }
+  }}[style*='Oswald'] { font-family: 'Oswald',
+    sans-serif!important;
+  }[style*='lato'] { font-family: 'lato',
+    sans-serif!important;
+    }</style>
+      </head>
+      <body>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="section-padding email" style="margin: 0px; padding: 0px; background: #414143;"
+data-styles="ew0KCSJoZWFkaW5nQ29sb3VyIjogIiMwMDAwMDAiLA0KCSJlbWFpbEJhY2tncm91bmQiOiAiIzQxNDE0MyIsDQoJImNvbnRlbnRCYWNrZ3JvdW5kIjogIiNmZmZmZmYiLA0KCSJwYXJhZ3JhcGhDb2xvdXIiOiAiIzAwMDAwMCIsDQoJInAiOiAiMTYiLA0KCSJwYXJhZ3JhcGhGb250IjogIkFyaWFsLCBzYW5zLXNlcmlmIiwNCgkicGFyYWdyYXBoTGV0dGVyU3BhY2luZyI6ICJpbml0aWFsIiwNCgkicGFyYWdyYXBoTGluZUhlaWdodCI6ICJpbml0aWFsIiwNCgkiaDFGb250RmFtaWx5IjogIkFyaWFsLCBzYW5zLXNlcmlmIiwNCgkiaDFGb250U2l6ZSI6ICIyNCIsDQoJImgxTGV0dGVyU3BhY2luZyI6ICJpbml0aWFsIiwNCgkiaDFMaW5lSGVpZ2h0IjogImluaXRpYWwiLA0KCSJoMUZvbnRXZWlnaHQiOiAiaW5pdGlhbCIsDQoJImgyRm9udEZhbWlseSI6ICJBcmlhbCwgc2Fucy1zZXJpZiIsDQoJImgyRm9udFNpemUiOiAiMjIiLA0KCSJoMkxldHRlclNwYWNpbmciOiAiaW5pdGlhbCIsDQoJImgyTGluZUhlaWdodCI6ICJpbml0aWFsIiwNCgkiaDJGb250V2VpZ2h0IjogImluaXRpYWwiLA0KCSJoM0ZvbnRGYW1pbHkiOiAiQXJpYWwsIHNhbnMtc2VyaWYiLA0KCSJoM0ZvbnRTaXplIjogIjIwIiwNCgkiaDNMZXR0ZXJTcGFjaW5nIjogImluaXRpYWwiLA0KCSJoM0xpbmVIZWlnaHQiOiAiaW5pdGlhbCIsDQoJImgzRm9udFdlaWdodCI6ICJpbml0aWFsIiwNCgkiaDRGb250RmFtaWx5IjogIkFyaWFsLCBzYW5zLXNlcmlmIiwNCgkiaDRGb250U2l6ZSI6ICIxOCIsDQoJImg0TGV0dGVyU3BhY2luZyI6ICJpbml0aWFsIiwNCgkiaDRMaW5lSGVpZ2h0IjogImluaXRpYWwiLA0KCSJoNEZvbnRXZWlnaHQiOiAiaW5pdGlhbCINCn0=="
+data-mappings="W3siaWQiOiJkeW5hbWljMSIsInZhbCI6ImJyYW5kX25hbWUifSx7ImlkIjoiZHluYW1pYzIiLCJ2YWwiOiJmYXZfdmVudWVfbmFtZSJ9LHsiaWQiOiJkeW5hbWljMyIsInZhbCI6ImZhdl92ZW51ZV9jb2RlIn0seyJpZCI6ImR5bmFtaWM0IiwidmFsIjoidmFsaWRfZnJvbSJ9LHsiaWQiOiJkeW5hbWljNSIsInZhbCI6InZhbGlkX3RvIn0seyJpZCI6ImR5bmFtaWM2IiwidmFsIjoiY29udGVudF90eXBlIn0seyJpZCI6ImR5bmFtaWM3IiwidmFsIjoiYnJhbmRfdHlwZSJ9LHsiaWQiOiJkeW5hbWljOSIsInZhbCI6Im5ld19wYXNzd29yZCJ9XQ=="
+data-variants=""
+>
+	<tbody>
+		<tr>
+			<td align="center" valign="top">
+				
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="blockArea block wrapper content">
+					<tbody>
+						<tr>
+							<td align="center" valign="top" width="100%" bgcolor="#414143">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="contentBlock block">
+									<tbody>
+										<tr>
+											<td height="35"></td>
+										</tr>
+										<tr>
+											<td style="text-align: center;" align="center" valign="top" width="100%">
+												<a href="http://stonegateemail.co.uk/$dynamic3$/website" style="border: none;">
+													<img src="http://img2.email2inbox.co.uk/2016/stonegate/templates/logo-common_room.png" border="0" alt="Common Room" style="outline: none; display: inline-block;" class="img-max">
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td height="35" ></td>
+										</tr>
+									</tbody>
+								</table>
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#F00D90">
+									<tbody>
+										<tr>
+											<td height="20" bgcolor="#F00D90"></td>
+										</tr>
+										<tr>
+											<td height="auto" class="text" align="center">
+												<p style="letter-spacing: initial; line-height: initial; font-size: 18px;">
+													<span>&nbsp;&nbsp;</span>
+													<a href="http://stonegateemail.co.uk/$dynamic3$/website" style="color: #ffffff; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none;">HOME</a>
+													<span>&nbsp;&nbsp;</span>
+													<a class="mobile-hide" href="http://stonegateemail.co.uk/$dynamic3$/food" style="color: #ffffff; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none;">FOOD</a>
+													<span class="mobile-hide">&nbsp;&nbsp;</span>
+													<a class="mobile-hide" href="http://stonegateemail.co.uk/$dynamic3$/drink" style="color: #ffffff; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none;">DRINK</a>
+													<span class="mobile-hide">&nbsp;&nbsp;</span>
+													<a href="http://stonegateemail.co.uk/$dynamic3$/events" style="color: #ffffff; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none;">WHAT'S ON</a>
+													<span>&nbsp;&nbsp;</span>
+													<a href="http://stonegateemail.co.uk/$dynamic3$/website" style="color: #ffffff; font-family: Arial, sans-serif; font-weight: 400; text-decoration: none;">BOOK A TABLE</a>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td height="10" bgcolor="#F00D90"></td>
+										</tr>
+									</tbody>
+								</table>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="contentBlock block">
+									<tbody>
+										<tr>
+											<td height="20"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table width="100%" height="5" border="0" cellspacing="0" cellpadding="0" class="block contentBlock">
+					<tbody>
+						<tr>
+							<td bgcolor="#414143" valign="top" style="font-size: 4px; line-height: 0px;"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block contentBlock">
+					<tbody>
+						<tr>
+							<td align="center" valign="top" width="100%" bgcolor="#414143">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block contentBlock">
+									<tbody>
+										<tr>
+											<td height="20"></td>
+										</tr>
+									</tbody>
+								</table>
+								<table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+									<tbody>
+										<tr>
+											<td width="auto" align="center" valign="top">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0" class="blockArea block wrapper content responsive-table empty">
+													<tbody>
+														<tr>
+															<td width="auto" align="center" valign="top">
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockImage wrapper" data-id="blockImage">
+	<tbody>
+		<tr>
+			<td style="text-align:center">
+				<img src="http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg" border="0" alt="Insert alt text here" style="outline:none;display:block;" class="img-max" width="100%">
+			</td>
+		</tr>
+	</tbody>
+</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockSpacer contentBlock" data-id="blockSpacer">
+    <tr>
+        <td align="center" height="40" valign="middle"></td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="600" class="block block1Column structureBlock wrapper" data-id="block1Column" style="width:600px;width:600px;width:600px;">
+      <tr>
+          <td align="center" valign="0">
+              <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table blockArea block" data-id="blockArea" style="width:600px;width:600px;width:600px;">
+                  <tr><td align="center" width="30"></td>
+                      <td valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockHeading wrapper" data-id="blockHeading">
+    <tr>
+        <td align="center">
+        	<h1 style="margin: 0; padding: 0; font-family: Arial, sans-serif, 'Roboto Slab'; line-height: 1.6; color: #F00D90; font-size: 24px;" class="heading"><span>Come celebrate with us at $dynamic2$ 
+</span></h1>
+        </td>
+    </tr>
+</table>
+</td><td align="center" width="30"></td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  </table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockSpacer contentBlock" data-id="blockSpacer">
+    <tr>
+        <td align="center" height="20" valign="middle"></td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="block blockText w100" data-id="blockText">
+	<tr><td align="center" width="30"></td>
+		<td class="text" align="center" valign="0" style="color: #000;font-weight: bold; font-family: arial;"><p><p>Hi $forename$,
+<p>Planning a party? There's no party like a $dynamic2$ party.
+<p>And here's our latest deal for you!
+<p>Save 10% when you book your party with us*.
+</p></td>
+	<td align="center" width="30"></td></tr>
+</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockSpacer contentBlock" data-id="blockSpacer">
+    <tr>
+        <td align="center" height="20" valign="middle"></td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="600" class="block block1Column structureBlock wrapper" data-id="block1Column" style="width:600px;width:600px;width:600px;">
+      <tr>
+          <td align="center" valign="0">
+              <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table blockArea block" data-id="blockArea" style="width:600px;width:600px;width:600px;">
+                  <tr><td align="center" width="30"></td>
+                      <td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="responsive-table block block1Columns structureBlock" data-id="block1Columns">
+  <tr>
+    <td height="10" bgcolor="#414143" colspan="3"></td>
+  </tr>
+  <tr>
+    <td width="10" bgcolor="#414143"></td>
+    <td width="auto">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#414143">
+        <tr>
+          <td valign="top" class="mobile-wrapper">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" height="300" align="center" class="responsive-table blockArea block" data-id="blockArea" bgcolor="#414143">
+              <tr>
+								<td height="20"></td>
+							</tr>
+              <tr>
+								<td align="center" valign="center" style="color: #F00D90; font-family: Arial, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.6;" class="heading">YOUR VOUCHER</td>
+							</tr>
+              <tr>
+                <td align="center" valign="center" style="text-align: center; color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 1.3;" class="heading">
+                  <span>Simply present your voucher on your phone, or quote your unique promo code, to claim your free dessert .
+</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="text" align="center" valign="center" style="color: #ffffff;">
+                  <p class="mob-center" style="display: block; padding: 0px; Margin: 0px 20px; text-align: center; font-family: Arial, sans-serif; font-size: 14px; font-weight: 400;color: #ffffff; line-height: 1.3;">
+                    <small style="font-size: 11px;">Terms and conditions apply*</small>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+								<td height="20"></td>
+							</tr>
+              <tr>
+								<td align="center" valign="center" style="color: #ffffff; font-family: Arial, sans-serif; font-size: 35px; font-weight: 700; line-height: 1.6;" class="heading"><span>$vouchercode$</span></td>
+							</tr>
+              <tr>
+								<td height="20"></td>
+							</tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockHeading wrapper" data-id="blockHeading">
+										<tr>
+											<td align="center" valign="center" style="font-weight: 700;" class="heading"><span style="color: #F00D90;">Valid from: </span><span style="color: #ffffff;"> $dynamic4$</span></td>
+                      <td align="center" valign="center" style="font-weight: 700;" class="heading"><span style="color: #ffffff;">|</span></td>
+											<td align="center" valign="center" style="font-weight: 700;" class="heading"><span style="color: #F00D90;">Valid to: </span><span style="color: #ffffff;"> $dynamic5$</span></td>
+                      <td align="center" valign="center" style="font-weight: 700;" class="heading"><span style="color: #ffffff;">|</span></td>
+											<td align="center" valign="center" style="font-weight: 700;" class="heading"><span style="color: #F00D90;">Valid to:</span><span style="color: #ffffff;"> $dynamic5$</span></td>
+										</tr>
+									</table>
+                </td>
+              </tr>
+            </table>
+          <td>
+        </tr>
+      </table>
+    </td>
+    <td width="10" bgcolor="#414143"></td>
+  </tr>
+  <tr>
+    <td height="10" bgcolor="#414143" colspan="3"></td>
+  </tr>
+</table>
+</td><td align="center" width="30"></td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  </table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockSpacer contentBlock" data-id="blockSpacer">
+    <tr>
+        <td align="center" height="20" valign="middle"></td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="block blockText w100" data-id="blockText">
+	<tr><td align="center" width="30"></td>
+		<td class="text" align="center" valign="0" style="color: #000;font-weight: bold; font-family: arial;"><p><p>Call us, or pop in and see us, and plan the perfect party for you.</p>
+<p>Or click here to book one of our great value packages.</p>
+<p>Your best ever party for less!</p>
+<p>The $dynamic1$ team</p>
+</p></td>
+	<td align="center" width="30"></td></tr>
+</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="block blockSpacer contentBlock" data-id="blockSpacer">
+    <tr>
+        <td align="center" height="40" valign="middle"></td>
+    </tr>
+</table>
+
+
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block contentBlock">
+									<tbody>
+										<tr>
+											<td height="20"></td>
+											<table border="0" cellpadding="0" cellspacing="0" width="600" class="block block1Column structureBlock wrapper" data-id="block1Column" style="width:600px;width:600px;width:600px;">
+      <tr>
+          <td align="center" valign="0">
+              <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table blockArea block" data-id="blockArea" style="width:600px;width:600px;width:600px;">
+                  <tr><td align="center" width="30"></td>
+                      <td valign="top" align="center" style="font-size: 11px; color: #fff">"Terms and conditions: Over 18's only. Minimum spend £100. Offer not available in Scotland. Offer must be redeemed within 3 months of receipt.
+Offer is subject to availability, there is no cash alternative and management reserves the right to remove this offer at any time."
+</td><td align="center" width="30"></td>
+  </tr><tr><td height="30" valign="0"></td></tr>
+  </table>
+  </td>
+  </tr>
+  </table>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block contentBlock">
+					<tbody>
+						<tr>
+							<td valign="top" align="center">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="block contentBlock" bgcolor="#414143">
+									<tbody>
+										<tr>
+											<td height="20" bgcolor="#414143"></td>
+										</tr>
+										<tr valign="middle">
+						          <td align="center" style="font-family: 'Arial', sans-serif;font-size: 14px; line-height: 24px; -mso-line-height: 24px; font-family: Arial, sans-serif, 'Oswald'; text-transform: uppercase;font-weight: 300;" valign="top">
+						            <a href="http://stonegateemail.co.uk/$dynamic3$/twitter" style="Margin-right: 20px; vertical-align: middle;border: none; outline: 0;text-decoration: none; color: #ed1d8f;">
+						              <img style="vertical-align: sub;" src="http://img2.email2inbox.co.uk/2016/stonegate/templates/twitter-light.png" border="0" alt="luna" class="img-max-ninety">&nbsp;&nbsp;
+						              <span class="mobile-hide">Twitter</span>
+						            </a>
+						            <a href="http://stonegateemail.co.uk/$dynamic3$/facebook" style="Margin-right: 20px; vertical-align: middle;border: none; outline: 0;text-decoration: none; color: #ed1d8f;">
+						              <img style="vertical-align: text-bottom;" src="http://img2.email2inbox.co.uk/2016/stonegate/templates/facebook-light.png" border="0" alt="luna" class="img-max-ninety">&nbsp;&nbsp;
+						              <span class="mobile-hide">Facebook</span>
+						          </td>
+						        </tr>
+										<tr>
+											<td height="25" bgcolor="#414143"></td>
+										</tr>
+										<tr>
+											<td align="center" valign="top" bgcolor="#414143">
+												<p style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; letter-spacing: initial; line-height: 1.2em;"><span style="color: #ffffff;">This email was sent on behalf of Stonegate Pub Company. All rights reserved.<br />Address: 500 Capability Green, Luton, LU1 3LS.</span></p>
+											</td>
+										</tr>
+										<tr>
+											<td height="10" bgcolor="#414143"></td>
+										</tr>
+										<tr>
+											<td align="center" valign="top" bgcolor="#414143">
+												<p style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; letter-spacing: initial; line-height: 1.2em;"><span style="color: #ffffff;">Can't see this email properly?</span> <a href="http://www.viewemailonline.co.uk/i.cfm?eml=$euid$" style="color: #F00D90">View it online here</a></p>
+											</td>
+										</tr>
+										<tr>
+											<td height="10" bgcolor="#414143"></td>
+										</tr>
+										<tr>
+											<td align="center" valign="top" bgcolor="#414143">
+												<p style="color: #F00D90; font-family: Arial, sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; letter-spacing: initial; line-height: 1.2em;"><a href="http://preferences.stonegateemail.co.uk/" style="color: #F00D90">UNSUBSCRIBE</a></p>
+											</td>
+										</tr>
+										<tr>
+											<td height="20" bgcolor="#414143"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+      </html>

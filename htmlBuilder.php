@@ -1,7 +1,7 @@
 <?php
 
 function sendToFile($output, $append, $serverName){
-  $send = true;
+  $send = false;
   if($send === true){
     $outputPath = "client.demo/";
     $brand = '/branded/';

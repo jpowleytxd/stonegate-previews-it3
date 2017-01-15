@@ -3,7 +3,7 @@
 ini_set('max_execution_time', 3000);
 
 function sendToFile($output, $append, $serverName){
-  $send = true;
+  $send = false;
   if($send === true){
     $outputPath = "pre_made/";
     $brand = '/branded/';
