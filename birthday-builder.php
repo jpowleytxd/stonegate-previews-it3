@@ -92,21 +92,14 @@ function nameCheck($name){
   }
 }
 
-function getURL($serverName){
-  $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
-  $urlEnd = '/woo-woo.png';
-
-  if(($serverName === 'finnegans_wake') || ($serverName === 'rosies') || ($serverName === 'two_brewers')){
-    return $urlStart . 'colors' . $urlEnd;
-  } else if(($serverName === 'halfway_to_heaven') || ($serverName === 'queens_court')){
-    return $urlStart . 'charles_street' . $urlEnd;
-  } else if(($serverName === 'marys')){
-    return $urlStart . 'admiral_duncan' . $urlEnd;
-  } else if(($serverName === 'pit_and_pendulum') || ($serverName === 'retro_bar') || ($serverName === 'rupert_street') || ($serverName === 'slains_castle') || ($serverName === 'via')){
-    return $urlStart . 'beduin' . $urlEnd;
-  }
-  else{
+function getURL($serverName, $email){
+  if(($email === 'Birthday -1 week') || ($email === 'Birthday -3 weeks')){
+    $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
+    $urlEnd = '/cocktail.png';
     return $urlStart . $serverName . $urlEnd;
+  } else{
+    $url = 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg';
+    return $url;
   }
 }
 
@@ -181,8 +174,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacer
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -203,11 +195,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<td class="text" align="left">', '<td class="text" align="center" ' . $styleInsert . '>', $textOne);
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
-
-  //Prep Promo Image
-  $url = getURL($serverName);
-  $promo = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', $url, $promo);
-  $promo = marginBuilder($promo);
 
   //Prep Voucher
   $voucherInstructions = $birthdayRow[9];
@@ -238,7 +225,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
-  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $promo .  $largeSpacer . $voucher . $largeSpacer . $textTwo . $largeSpacer;
+  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $largeSpacer . $voucher . $largeSpacer . $textTwo . $largeSpacer;
 
   $search = "/<!-- User Content: Main Content Start -->\s*<!-- User Content: Main Content End -->/";
   $output = preg_replace($search, "<!-- User Content: Main Content Start -->" . $insert . "<!-- User Content: Main Content End -->", $template);
@@ -291,8 +278,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacer
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -313,11 +299,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<td class="text" align="left">', '<td class="text" align="center" ' . $styleInsert . '>', $textOne);
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
-
-  //Prep Promo Image
-  $url = getURL($serverName);
-  $promo = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', $url, $promo);
-  $promo = marginBuilder($promo);
 
   //Prep Voucher
   $voucherInstructions = $birthdayRow[9];
@@ -348,7 +329,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
-  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $promo .  $largeSpacer . $voucher . $largeSpacer . $textTwo . $largeSpacer;
+  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne .  $largeSpacer . $voucher . $largeSpacer . $textTwo . $largeSpacer;
 
   $search = "/<!-- User Content: Main Content Start -->\s*<!-- User Content: Main Content End -->/";
   $output = preg_replace($search, "<!-- User Content: Main Content Start -->" . $insert . "<!-- User Content: Main Content End -->", $template);
@@ -401,8 +382,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacer
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -423,9 +403,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<td class="text" align="left">', '<td class="text" align="center" ' . $styleInsert . '>', $textOne);
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
-
-  //Prep Promo Image
-  $url = getURL($serverName);
 
   //Prep Voucher
   $voucherInstructions = $birthdayRow[9];

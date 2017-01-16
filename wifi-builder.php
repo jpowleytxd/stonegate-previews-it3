@@ -92,21 +92,14 @@ function nameCheck($name){
   }
 }
 
-function getURL($serverName){
-  $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
-  $urlEnd = '/woo-woo.png';
-
-  if(($serverName === 'finnegans_wake') || ($serverName === 'rosies') || ($serverName === 'two_brewers')){
-    return $urlStart . 'colors' . $urlEnd;
-  } else if(($serverName === 'halfway_to_heaven') || ($serverName === 'queens_court')){
-    return $urlStart . 'charles_street' . $urlEnd;
-  } else if(($serverName === 'marys')){
-    return $urlStart . 'admiral_duncan' . $urlEnd;
-  } else if(($serverName === 'pit_and_pendulum') || ($serverName === 'retro_bar') || ($serverName === 'rupert_street') || ($serverName === 'slains_castle') || ($serverName === 'via')){
-    return $urlStart . 'beduin' . $urlEnd;
-  }
-  else{
+function getURL($serverName, $email){
+  if(($email === 'WIFI sign in 1 + 1 Day') || ($email === 'WIFI sign in 2 + 7 Days')){
+    $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
+    $urlEnd = '/shot.png';
     return $urlStart . $serverName . $urlEnd;
+  } else{
+    $url = 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg';
+    return $url;
   }
 }
 
@@ -196,8 +189,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacers
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -220,11 +212,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
 
-  //Prep Promo Image
-  $url = getURL($serverName);
-  $promo = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', $url, $promo);
-  $promo = marginBuilder($promo);
-
   //Prep Text Two
   $wifiRow[7] = str_replace('"', '', $wifiRow[7]);
   $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $wifiRow[7], $textTwo);
@@ -236,6 +223,15 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textTwo = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textTwo);
   $textTwo = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textTwo);
 
+  //Prep Voucher
+  $voucherInstructions = $wifiRow[9];
+
+  $voucher = file_get_contents($parentFolder . '/bespoke blocks/' . $parentFolder . '_voucher.html');
+  $voucherSearch = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  $voucher = str_replace($voucherSearch, $voucherInstructions, $voucher);
+
+  $voucher = marginBuilder($voucher);
+
   preg_match('/"emailBackground": "(.*)"/', $template, $matches, PREG_OFFSET_CAPTURE);
   $color = $matches[1][0];
   //print($color . ' : ');
@@ -246,7 +242,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
-  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $promo . $emptySpacer . $lineSpacer . $emptySpacer . $textTwo . $largeSpacer;
+  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $voucher . $emptySpacer. $lineSpacer . $emptySpacer . $textTwo . $largeSpacer;
 
   $search = "/<!-- User Content: Main Content Start -->\s*<!-- User Content: Main Content End -->/";
   $output = preg_replace($search, "<!-- User Content: Main Content Start -->" . $insert . "<!-- User Content: Main Content End -->", $template);
@@ -267,6 +263,8 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $parentFolder = preg_replace('/(.*?)\/.*/', '$1', $filename);
 
   $serverName = nameCheck($parentFolder);
+
+  print($serverName . '<br/><br/>');
 
   //Get content
   $wifiRow = null;
@@ -296,8 +294,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacers
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -320,11 +317,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
 
-  //Prep Promo Image
-  $url = getURL($serverName);
-  $promo = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', $url, $promo);
-  $promo = marginBuilder($promo);
-
   //Prep Text Two
   $wifiRow[7] = str_replace('"', '', $wifiRow[7]);
   $textTwo = str_replace('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales vehicula tellus pellentesque malesuada. Integer malesuada magna felis, id rutrum leo volutpat eget. Morbi finibus et diam in placerat. Suspendisse magna enim, pharetra at erat vel, consequat facilisis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla est velit, lobortis eu tincidunt sit amet, semper et lorem.', $wifiRow[7], $textTwo);
@@ -346,7 +338,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $styleInsert = 'style="font-size: 11px; color: ' . $textColor . '"';
   $terms = preg_replace('/<td valign="top">/', '<td valign="top" align="center" ' . $styleInsert . '>', $terms);
 
-  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $promo . $emptySpacer . $lineSpacer . $emptySpacer . $textTwo . $largeSpacer;
+  $insert = $image . $largeSpacer . $heading . $emptySpacer . $textOne . $emptySpacer . $lineSpacer . $emptySpacer . $textTwo . $largeSpacer;
 
   $search = "/<!-- User Content: Main Content Start -->\s*<!-- User Content: Main Content End -->/";
   $output = preg_replace($search, "<!-- User Content: Main Content Start -->" . $insert . "<!-- User Content: Main Content End -->", $template);
@@ -396,8 +388,7 @@ foreach(glob("*/templates/*_branded.html") as $filename){
 
   //Prep Image
   $image = file_get_contents('bosleys/_defaults/image.html');
-  $promo = $image;
-  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+  $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
   //Prep Spacers
   $emptySpacer = file_get_contents('basic-spacer.html');
@@ -419,9 +410,6 @@ foreach(glob("*/templates/*_branded.html") as $filename){
   $textOne = str_replace('<td class="text" align="left">', '<td class="text" align="center" valign="0" ' . $styleInsert . '>', $textOne);
   $textOne = str_replace('<tr>', '<tr><td align="center" width="30"></td>', $textOne);
   $textOne = str_replace('</tr>', '<td align="center" width="30"></td></tr>', $textOne);
-
-  //Prep Promo Image
-  $url = getURL($serverName);
 
   //Prep Voucher
   $voucherInstructions = $wifiRow[9];

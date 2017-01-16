@@ -92,21 +92,14 @@ function nameCheck($name){
   }
 }
 
-function getURL($serverName){
-  $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
-  $urlEnd = '/woo-woo.png';
-
-  if(($serverName === 'finnegans_wake') || ($serverName === 'rosies') || ($serverName === 'two_brewers')){
-    return $urlStart . 'colors' . $urlEnd;
-  } else if(($serverName === 'halfway_to_heaven') || ($serverName === 'queens_court')){
-    return $urlStart . 'charles_street' . $urlEnd;
-  } else if(($serverName === 'marys')){
-    return $urlStart . 'admiral_duncan' . $urlEnd;
-  } else if(($serverName === 'pit_and_pendulum') || ($serverName === 'retro_bar') || ($serverName === 'rupert_street') || ($serverName === 'slains_castle') || ($serverName === 'via')){
-    return $urlStart . 'beduin' . $urlEnd;
-  }
-  else{
+function getURL($serverName, $email){
+  if(($email === 'WIFI sign in 1 + 1 Day') || ($email === 'WIFI sign in 2 + 7 Days')){
+    $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
+    $urlEnd = '/shot.png';
     return $urlStart . $serverName . $urlEnd;
+  } else{
+    $url = 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg';
+    return $url;
   }
 }
 
