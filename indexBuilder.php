@@ -87,6 +87,14 @@ foreach(glob("client.demo/*/") as $filename){
 	print_r('<a href="it2compiled/' . $parentFolder . '/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a>');
 	print_r('<a href="it2compiled/' . $parentFolder . '/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a>');
 
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/wifi_1_day.html">WiFi Sign In 1 Plus 1 Day</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/wifi_7_days.html">WiFi Sign In 2 Plus 7 Days</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/wifi_21_days.html">WiFi Sign In 3 Plus 21 Days</a>');
+
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/birthday_1_week.html">Birthday 1 Week</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/birthday_3_weeks.html">Birthday 3 Weeks</a>');
+	print_r('<a href="it2compiled/' . $parentFolder . '/branded/birthday_6_weeks.html">Birthday 6 Weeks</a>');
+
   print_r('<a href="it2compiled/' . $parentFolder . '/branded/adhoc.html">Adhoc</a>');
   print_r('<a href="it2compiled/' . $parentFolder . '/branded/belly-band.html">Belly Band</a>');
   print_r('<a href="it2compiled/' . $parentFolder . '/branded/newsletter.html">Newsletter</a>');

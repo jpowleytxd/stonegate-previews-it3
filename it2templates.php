@@ -69,47 +69,7 @@
 
 
 
-<h1>Bosleys</h1>
-<a href="it2compiled/bosleys/branded/password_reset.html">Forgetten Password</a>
-<a href="it2compiled/bosleys/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a>
-<a href="it2compiled/bosleys/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a>
-<a href="it2compiled/bosleys/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a>
-<a href="it2compiled/bosleys/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a>
-<a href="it2compiled/bosleys/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a>
-<a href="it2compiled/bosleys/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a>
-<a href="it2compiled/bosleys/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a>
-<a href="it2compiled/bosleys/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a>
-<a href="it2compiled/bosleys/branded/adhoc.html">Adhoc</a>
-<a href="it2compiled/bosleys/branded/belly-band.html">Belly Band</a>
-<a href="it2compiled/bosleys/branded/newsletter.html">Newsletter</a>
-
-<h1>Common Room</h1>
-<a href="it2compiled/common_room/branded/password_reset.html">Forgetten Password</a>
-<a href="it2compiled/common_room/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a>
-<a href="it2compiled/common_room/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a>
-<a href="it2compiled/common_room/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a>
-<a href="it2compiled/common_room/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a>
-<a href="it2compiled/common_room/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a>
-<a href="it2compiled/common_room/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a>
-<a href="it2compiled/common_room/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a>
-<a href="it2compiled/common_room/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a>
-<a href="it2compiled/common_room/branded/adhoc.html">Adhoc</a>
-<a href="it2compiled/common_room/branded/belly-band.html">Belly Band</a>
-<a href="it2compiled/common_room/branded/newsletter.html">Newsletter</a>
-
-<h1>Yates</h1>
-<a href="it2compiled/yates/branded/password_reset.html">Forgetten Password</a>
-<a href="it2compiled/yates/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a>
-<a href="it2compiled/yates/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a>
-<a href="it2compiled/yates/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a>
-<a href="it2compiled/yates/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a>
-<a href="it2compiled/yates/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a>
-<a href="it2compiled/yates/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a>
-<a href="it2compiled/yates/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a>
-<a href="it2compiled/yates/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a>
-<a href="it2compiled/yates/branded/adhoc.html">Adhoc</a>
-<a href="it2compiled/yates/branded/belly-band.html">Belly Band</a>
-<a href="it2compiled/yates/branded/newsletter.html">Newsletter</a>
+<h1>Bosleys</h1><a href="it2compiled/bosleys/branded/password_reset.html">Forgetten Password</a><a href="it2compiled/bosleys/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a><a href="it2compiled/bosleys/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a><a href="it2compiled/bosleys/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a><a href="it2compiled/bosleys/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a><a href="it2compiled/bosleys/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a><a href="it2compiled/bosleys/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a><a href="it2compiled/bosleys/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a><a href="it2compiled/bosleys/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a><a href="it2compiled/bosleys/branded/wifi_1_day.html">WiFi Sign In 1 Plus 1 Day</a><a href="it2compiled/bosleys/branded/wifi_7_days.html">WiFi Sign In 2 Plus 7 Days</a><a href="it2compiled/bosleys/branded/wifi_21_days.html">WiFi Sign In 3 Plus 21 Days</a><a href="it2compiled/bosleys/branded/birthday_1_week.html">Birthday 1 Week</a><a href="it2compiled/bosleys/branded/birthday_3_weeks.html">Birthday 3 Weeks</a><a href="it2compiled/bosleys/branded/birthday_6_weeks.html">Birthday 6 Weeks</a><a href="it2compiled/bosleys/branded/adhoc.html">Adhoc</a><a href="it2compiled/bosleys/branded/belly-band.html">Belly Band</a><a href="it2compiled/bosleys/branded/newsletter.html">Newsletter</a><h1>Common Room</h1><a href="it2compiled/common_room/branded/password_reset.html">Forgetten Password</a><a href="it2compiled/common_room/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a><a href="it2compiled/common_room/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a><a href="it2compiled/common_room/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a><a href="it2compiled/common_room/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a><a href="it2compiled/common_room/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a><a href="it2compiled/common_room/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a><a href="it2compiled/common_room/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a><a href="it2compiled/common_room/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a><a href="it2compiled/common_room/branded/wifi_1_day.html">WiFi Sign In 1 Plus 1 Day</a><a href="it2compiled/common_room/branded/wifi_7_days.html">WiFi Sign In 2 Plus 7 Days</a><a href="it2compiled/common_room/branded/wifi_21_days.html">WiFi Sign In 3 Plus 21 Days</a><a href="it2compiled/common_room/branded/birthday_1_week.html">Birthday 1 Week</a><a href="it2compiled/common_room/branded/birthday_3_weeks.html">Birthday 3 Weeks</a><a href="it2compiled/common_room/branded/birthday_6_weeks.html">Birthday 6 Weeks</a><a href="it2compiled/common_room/branded/adhoc.html">Adhoc</a><a href="it2compiled/common_room/branded/belly-band.html">Belly Band</a><a href="it2compiled/common_room/branded/newsletter.html">Newsletter</a><h1>Yates</h1><a href="it2compiled/yates/branded/password_reset.html">Forgetten Password</a><a href="it2compiled/yates/branded/auto_welcome_uk.html">Auto Welcome - Immediate</a><a href="it2compiled/yates/branded/welcome_1_day_uk.html">Welcome 1 + 1 Day</a><a href="it2compiled/yates/branded/welcome_7_days_uk.html">Welcome 2 + 7 Days</a><a href="it2compiled/yates/branded/welcome_21_days_uk.html">Welcome 3 + 21 Days</a><a href="it2compiled/yates/branded/auto_welcome_scot.html">Auto Welcome - Immediate (Scot)</a><a href="it2compiled/yates/branded/welcome_1_day_scot.html">Welcome 1 + 1 Day (Scot)</a><a href="it2compiled/yates/branded/welcome_7_days_scot.html">Welcome 2 + 7 Days (Scot)</a><a href="it2compiled/yates/branded/welcome_21_days_scot.html">Welcome 3 + 21 Days (Scot)</a><a href="it2compiled/yates/branded/wifi_1_day.html">WiFi Sign In 1 Plus 1 Day</a><a href="it2compiled/yates/branded/wifi_7_days.html">WiFi Sign In 2 Plus 7 Days</a><a href="it2compiled/yates/branded/wifi_21_days.html">WiFi Sign In 3 Plus 21 Days</a><a href="it2compiled/yates/branded/birthday_1_week.html">Birthday 1 Week</a><a href="it2compiled/yates/branded/birthday_3_weeks.html">Birthday 3 Weeks</a><a href="it2compiled/yates/branded/birthday_6_weeks.html">Birthday 6 Weeks</a><a href="it2compiled/yates/branded/adhoc.html">Adhoc</a><a href="it2compiled/yates/branded/belly-band.html">Belly Band</a><a href="it2compiled/yates/branded/newsletter.html">Newsletter</a>
 </body>
 
 </html>

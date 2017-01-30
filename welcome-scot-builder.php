@@ -93,9 +93,9 @@ function nameCheck($name){
 }
 
 function getURL($serverName, $email){
-  if(($email === 'WIFI sign in 1 + 1 Day') || ($email === 'WIFI sign in 2 + 7 Days')){
+  if(($email === 'Welcome 2 + 7 Days (Scot)') || ($email === 'Welcome 3 + 21 Days (Scot)')){
     $urlStart = 'http://img2.email2inbox.co.uk/2017/stonegate/01/promo/';
-    $urlEnd = '/shot.png';
+    $urlEnd = '/dessert.png';
     return $urlStart . $serverName . $urlEnd;
   } else{
     $url = 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg';
@@ -200,7 +200,7 @@ for($i = 1; $i <= 3; $i++){
     //Prep Image
     $image = file_get_contents('bosleys/_defaults/image.html');
     $promo = $image;
-    $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', 'http://img2.email2inbox.co.uk/2016/stonegate/templates/placeholder.jpg', $image);
+    $image = str_replace('http://img2.email2inbox.co.uk/editor/fullwidth.jpg', getURL($serverName, $email), $image);
 
     //Prep Spacers
     $emptySpacer = file_get_contents('basic-spacer.html');
