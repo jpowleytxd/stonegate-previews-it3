@@ -201,14 +201,6 @@ foreach (glob("client.demo/*/branded/auto_welcome_uk.html") as $filename) {
     $subject = $welcomeRows[1][2];
     $preHeader = $welcomeRows[1][3];
     $voucher = '0';
-  } else if($type === 'Auto Welcome'){
-    $subject = $welcomeRows[2][2];
-    $preHeader = $welcomeRows[2][3];
-    $voucher = '0';
-  } else if($type === 'Auto Welcome'){
-    $subject = $welcomeRows[3][2];
-    $preHeader = $welcomeRows[3][3];
-    $voucher = '1';
   }
 
   $settings = buildTemplateSettings($name, $preHeader, $subject, $brandID, $profileID);
