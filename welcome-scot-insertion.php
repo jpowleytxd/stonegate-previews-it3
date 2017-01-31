@@ -123,7 +123,7 @@ $sql2 = null;
 $sql3 = null;
 
 foreach (glob("client.demo/*/branded/welcome*.html") as $filename) {
-  if((strpos($filename, 'uk') !== false)){
+  if((strpos($filename, 'scot') !== false)){
     $temp = file_get_contents($filename);
 
     preg_match_all('/.*?\/(.*?)\/.*?\/(.*?).html/', $filename, $matches);
@@ -145,12 +145,12 @@ foreach (glob("client.demo/*/branded/welcome*.html") as $filename) {
     $type = str_replace('_', ' ', $type);
     $type = ucwords($type);
 
-    if($type === 'Welcome 1 Day Uk'){
-      $type="Welcome 1 + 1 Day";
-    } else if($type === 'Welcome 7 Days Uk'){
-      $type="Welcome 2 + 7 Days";
-    } else if($type === 'Welcome 21 Days Uk'){
-      $type="Welcome 3 + 21 Days";
+    if($type === 'Welcome 1 Day Scot'){
+      $type="Welcome 1 + 1 Day (Scot)";
+    } else if($type === 'Welcome 7 Days Scot'){
+      $type="Welcome 2 + 7 Days (Scot)";
+    } else if($type === 'Welcome 21 Days Scot'){
+      $type="Welcome 3 + 21 Days (Scot)";
     }
 
     $initialQuery = 'SELECT * FROM stonegate_lookup WHERE brand = "' . $upperCaseName . '"';
@@ -202,15 +202,15 @@ foreach (glob("client.demo/*/branded/welcome*.html") as $filename) {
     $voucher = null;
     $preHeader = null;
 
-    if($type === 'Welcome 1 + 1 Day'){
+    if($type === 'Welcome 1 + 1 Day (Scot)'){
       $subject = $welcomeRows[1][2];
       $preHeader = $welcomeRows[1][3];
       $voucher = '0';
-    } else if($type === 'Welcome 2 + 7 Days'){
+    } else if($type === 'Welcome 2 + 7 Days (Scot)'){
       $subject = $welcomeRows[2][2];
       $preHeader = $welcomeRows[2][3];
       $voucher = '0';
-    } else if($type === 'Welcome 3 + 21 Days'){
+    } else if($type === 'Welcome 3 + 21 Days (Scot)'){
       $subject = $welcomeRows[3][2];
       $preHeader = $welcomeRows[3][3];
       $voucher = '1';
@@ -219,13 +219,13 @@ foreach (glob("client.demo/*/branded/welcome*.html") as $filename) {
     $settings = buildTemplateSettings($name, $preHeader, $subject, $brandID, $profileID);
     $mappings = buildTemplateMappings();
 
-    if($type === 'Welcome 1 + 1 Day'){
+    if($type === 'Welcome 1 + 1 Day (Scot)'){
       $sql1 .= "insert into `tbl_email_templates` (`template_account_id`, `template_status`, `template_html`, `template_text`, `template_title`, `template_description`, `template_added`, `template_modified`, `template_visible`, `template_subject`, `template_preview`, `template_last_used`, `template_sender_id`, `template_dynamic1_mapping`, `template_dynamic2_mapping`, `template_dynamic3_mapping`, `template_dynamic4_mapping`, `template_dynamic5_mapping`, `template_dynamic6_mapping`, `template_dynamic7_mapping`, `template_dynamic8_mapping`, `template_isTemp`, `template_visual_editor`, `template_has_voucher`, `template_ve_settings`, `template_ve_mappings`)
               values('" . $accountID . "', '1', '" . $temp . "', '', '" . $name . "', '', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "', '1', '" . $subject . "', '', '" . date("Y-m-d H:i:s") . "', '" . $profileID . "', '', '', '', '', '', '', '', '', '0', '1', '" . $voucher . "', '" . $settings . "', '" . $mappings . "');\n";
-    } else if($type === 'Welcome 2 + 7 Days'){
+    } else if($type === 'Welcome 2 + 7 Days (Scot)'){
       $sql2 .= "insert into `tbl_email_templates` (`template_account_id`, `template_status`, `template_html`, `template_text`, `template_title`, `template_description`, `template_added`, `template_modified`, `template_visible`, `template_subject`, `template_preview`, `template_last_used`, `template_sender_id`, `template_dynamic1_mapping`, `template_dynamic2_mapping`, `template_dynamic3_mapping`, `template_dynamic4_mapping`, `template_dynamic5_mapping`, `template_dynamic6_mapping`, `template_dynamic7_mapping`, `template_dynamic8_mapping`, `template_isTemp`, `template_visual_editor`, `template_has_voucher`, `template_ve_settings`, `template_ve_mappings`)
               values('" . $accountID . "', '1', '" . $temp . "', '', '" . $name . "', '', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "', '1', '" . $subject . "', '', '" . date("Y-m-d H:i:s") . "', '" . $profileID . "', '', '', '', '', '', '', '', '', '0', '1', '" . $voucher . "', '" . $settings . "', '" . $mappings . "');\n";
-    } else if($type === 'Welcome 3 + 21 Days'){
+    } else if($type === 'Welcome 3 + 21 Days (Scot)'){
       $sql3 .= "insert into `tbl_email_templates` (`template_account_id`, `template_status`, `template_html`, `template_text`, `template_title`, `template_description`, `template_added`, `template_modified`, `template_visible`, `template_subject`, `template_preview`, `template_last_used`, `template_sender_id`, `template_dynamic1_mapping`, `template_dynamic2_mapping`, `template_dynamic3_mapping`, `template_dynamic4_mapping`, `template_dynamic5_mapping`, `template_dynamic6_mapping`, `template_dynamic7_mapping`, `template_dynamic8_mapping`, `template_isTemp`, `template_visual_editor`, `template_has_voucher`, `template_ve_settings`, `template_ve_mappings`)
               values('" . $accountID . "', '1', '" . $temp . "', '', '" . $name . "', '', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "', '1', '" . $subject . "', '', '" . date("Y-m-d H:i:s") . "', '" . $profileID . "', '', '', '', '', '', '', '', '', '0', '1', '" . $voucher . "', '" . $settings . "', '" . $mappings . "');\n";
       $voucher = '1';
@@ -233,13 +233,13 @@ foreach (glob("client.demo/*/branded/welcome*.html") as $filename) {
   }
 }
 
-$append = "welcome-1-day-uk-insert";
+$append = "welcome-1-day-scot-insert";
 sendToFile($sql1, $append);
 
-$append = "welcome-7-days-uk-insert";
+$append = "welcome-7-days-scot-insert";
 sendToFile($sql2, $append);
 
-$append = "welcome-21-days-uk-insert";
+$append = "welcome-21-days-scot-insert";
 sendToFile($sql3, $append);
 
 print($sql1);
